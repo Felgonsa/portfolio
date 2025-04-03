@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --corPrimaria: #05050e;
+  --corSecundaria: #00000e;
+}
+
+* {
+  transition: 500ms;
+  box-sizing: inherit;
+  color: white;
+  scroll-margin-top: 100px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: visible;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: var(--corPrimaria);
+}
+
+nav {
+  font-size: 1rem;
+  background: var(--corPrimaria);
+  opacity: 0.9;
+  position: sticky !important;
+  top: 0px;
+  z-index: 1000;
+}
+
+#navbarNav {
+  justify-content: center;
+}
+
+.nav-item:hover {
+  text-shadow: 2px 2px 5px rgb(255, 255, 255);
+  transform: scale(1.1);
+}
+
+#inicio {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 7rem;
+}
+
+.nome {
+  font-family: "Audiowide", Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: auto;
+  width: 40rem;
+}
+
+.nome h1 {
+  font-size: 3rem;
+}
+
+.nome h2 {
+  font-size: 1.5rem;
+}
+
+#textoInicio {
+  font-family: "Inter";
+}
+
+#redes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.redesLink {
+  box-shadow: 15px 15px 10px black;
+  transition: 400ms;
+}
+
+.redesLink:hover {
+  transform: translate3d(5px, -5px, 10px);
+}
+
+.redesLink img {
+  width: 30px;
+  padding: 5px;
+}
+
+.foto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foto img {
+  max-width: 25rem;
+  border-radius: 100%;
+  box-shadow: 20px 20px 10px rgb(0, 0, 0);
+}
+
+.foto img:hover {
+  transform: scale(1.2);
+  border-radius: 10%;
+}
+
+.apresentacao {
+  text-align: center;
+}
+
+#sobre {
+  background: var(--corSecundaria);
+
+  height: 100vh;
+}
+.sobreDiv {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20vh;
+}
+
+#sobre div {
+  font-family: "Inter";
+}
+
+.titulo {
+  font-family: "Funnel Display";
+  text-align: center;
+  margin: 30px;
+  margin-top: 10vh;
+}
+
+.tecnologiaContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 5%;
+}
+
+.tecnologia {
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 2fr;
+
+  background: #0891b2;
+  border-radius: 25px;
+
+  height: 3rem;
+  margin-top: 10px;
+
+  transition: transform 300ms;
+  box-shadow: 15px 15px 10px #000000;
+  text-align: start;
+}
+
+.tecnologia:hover {
+  transform: translateY(-10px);
+}
+
+.tecnologiaImg {
+  margin: auto;
+  height: 2rem;
+}
+
+.boxProjetos {
+  color: black;
+  display: grid;
+  border-radius: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 50px;
+  gap: 5%;
+}
+
+.boxCard {
+  color: black;
+  display: flex;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: start;
+  background-color: #ffffff;
+  border-radius: 25px;
+  box-shadow: 15px 15px 10px #000000;
+  margin-top: 10px;
+  height: 102%;
+}
+
+.boxCard:hover {
+  /* transform: translateY(-10px); */
+  transform: scale(1.03);
+  box-shadow: 15px 15px 10px #1d1d1d;
+
+}
+
+.boxCard h3 {
+  font-family: "Audiowide", Arial, Helvetica, sans-serif;
+  text-align: start;
+  margin: 10px;
+}
+
+.boxImg {
+  border-radius: 20px 20px 0 0;
+}
+
+.boxImg :hover {
+  transform: scale(1.01);
+}
+
+.boxTecs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 15px;
+  width: 100%;
+  padding: 10px;
+}
+
+.boxTecs div {
+  font-size: 10px;
+  background: #05050e;
+  border-radius: 50px;
+  padding: 5px;
+  text-align: center;
+  box-shadow: 5px 5px 8px #000000;
+  border: 1px solid rgba(37, 37, 37, 0.5);
+}
+
+.boxTecs div:hover {
+  transform: scale(1.05);
+  color: black;
+  background: white;
+  transition: 300ms;
+}
+
+.boxText {
+  color: black;
+  font-family: "Inter";
+  margin: 0px 15px 15px 10px;
+  text-align: start;
+}
+
+.boxLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxLinks a {
+  text-decoration: none;
+}
+
+.boxLinks button {
+  width: 100px;
+  border: 1px solid black;
+  color: rgb(0, 0, 0);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 0px 10px 0px 10px;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxLinks button:hover {
+  transform: scale(1.1);
+  transition: 300ms;
+}
+
+.boxLinks button img {
+  width: 15px;
+  margin-right: 10px;
+}
+
+.contato {
+  background: var(--corSecundaria);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Audiowide";
+  height: 100vh;
+  margin-top: 50 px;
+}
+
+.divContato {
+  background: var(--corPrimaria);
+
+  border-radius: 20px;
+  width: 40%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.contato form {
+  width: 70%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input,
+.textArea,
+.btnSub {
+  font-family: "Inter";
+  background: var(--corPrimaria);
+  color: black;
+  color: white;
+  border: white 1px double;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.btnSub:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  body {
+    max-width: 100%;
+  }
+
+  * {
+    transition: none !important;
+  }
+
+  #inicio {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    gap: 3rem;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .nome {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .nome h1 {
+    font-size: 2rem;
+  }
+
+  .nome h2 {
+    font-size: 1.8rem;
+  }
+
+  .foto {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .tecnologiaContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .contato {
+    height: 80vh;
+    margin-top: 100px;
+  }
+  .contato form {
+    width: 90%;
+  }
+  .divContato {
+    width: 90%;
+  }
+}
