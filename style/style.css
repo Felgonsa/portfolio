@@ -19,7 +19,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   overflow-x: visible;
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -51,7 +51,7 @@ nav {
 
 #inicio {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   margin-top: 5rem;
   margin-bottom: 7rem;
@@ -171,6 +171,10 @@ nav {
   height: 2rem;
 }
 
+#projetos {
+  margin-bottom: 5rem;
+}
+
 .boxProjetos {
   color: black;
   display: grid;
@@ -178,6 +182,7 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 50px;
   gap: 5%;
+  margin-bottom: 5rem;
 }
 
 .boxCard {
@@ -289,7 +294,7 @@ nav {
   align-items: center;
   font-family: "Audiowide";
   height: 100vh;
-  margin-top: 50 px;
+  margin-top: 5rem;
 }
 
 .divContato {
@@ -310,6 +315,7 @@ nav {
   justify-content: center;
 }
 
+
 .input,
 .textArea,
 .btnSub {
@@ -329,6 +335,11 @@ nav {
   cursor: pointer;
 }
 
+#habilidades, #projetos, .contato {
+  min-height: 100vh;
+}
+
+
 @media (max-width: 768px) {
   body {
     max-width: 100%;
@@ -341,8 +352,8 @@ nav {
   #inicio {
     grid-template-columns: 1fr;
     grid-auto-flow: row;
-    gap: 3rem;
-    margin: 2rem auto;
+    gap: 2rem;
+    margin: 1.5rem auto;
     padding: 1rem;
   }
 
@@ -353,32 +364,98 @@ nav {
   }
 
   .nome h1 {
-    font-size: 2rem;
-  }
-
-  .nome h2 {
     font-size: 1.8rem;
   }
 
+  .nome h2 {
+    font-size: 1.5rem;
+  }
+
   .foto {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 1rem;
   }
 
+  .foto img {
+    max-width: 18rem;
+  }
+
   .tecnologiaContainer {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-bottom: 3rem;
+    gap: 0.8rem;
+    margin-bottom: 5rem;
+    
+  }
+
+  #projetos{
+    margin-top: 50rem;
   }
 
   .contato {
-    height: 80vh;
-    margin-top: 100px;
+  
+    height: auto;
+    padding: 2rem;
+    margin-top: 10vh;
   }
-  .contato form {
-    width: 90%;
-  }
-  .divContato {
-    width: 90%;
+
+  .contato form, .divContato {
+    width: 95%;
   }
 }
+
+@media (max-width: 480px) {
+  
+
+  .nome h1 {
+    font-size: 1.6rem;
+  }
+
+  .nome h2 {
+    font-size: 1.1rem;
+  }
+
+  .foto img {
+    max-width: 15rem;
+  }
+
+  .tecnologiaContainer {
+    gap: 0.4rem;
+  }
+
+  .boxProjetos {
+    margin: 15px;
+  }
+
+  .contato {
+    height: auto;
+    padding: 1rem;
+    margin-top: 15vh;
+  }
+}
+
+@media (max-width: 360px) {
+  .nome h1 {
+    font-size: 1.4rem;
+  }
+
+  .nome h2 {
+    font-size: 0.9rem;
+  }
+
+  .foto img {
+    max-width: 12rem;
+  }
+
+  .boxProjetos {
+    margin: 10px;
+  }
+
+  #projetos {
+    margin-bottom: 15vh;
+  }
+  .contato {
+    margin-top: 8vh;
+    padding: 0.5rem;
+    margin-top: 10vh;
+  }
+}
+
