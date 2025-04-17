@@ -248,7 +248,7 @@ nav {
   color: black;
   font-family: "Inter";
   margin: 0px 15px 15px 10px;
-  text-align: start;
+  text-align:justify;
 }
 
 .boxLinks {
