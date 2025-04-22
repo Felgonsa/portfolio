@@ -380,6 +380,11 @@ nav {
     max-width: 18rem;
   }
 
+  #habilidades{
+    height: 100vh;
+    margin-bottom: 20vh;
+  }
+
   .tecnologiaContainer {
     gap: 0.8rem;
     margin-bottom: 5rem;
@@ -387,14 +392,14 @@ nav {
   }
 
   #projetos{
-    margin-top: 50rem;
+    margin-top: 100vh;
   }
 
   .contato {
   
     height: auto;
     padding: 2rem;
-    margin-top: 10vh;
+    margin-top: 100vh;
   }
 
   .contato form, .divContato {
@@ -428,7 +433,8 @@ nav {
   .contato {
     height: auto;
     padding: 1rem;
-    margin-top: 15vh;
+    
+    margin-top: 150vh;
   }
 }
 
@@ -453,7 +459,7 @@ nav {
     margin-bottom: 15vh;
   }
   .contato {
-    margin-top: 8vh;
+    margin-top: 200vh;
     padding: 0.5rem;
     margin-top: 10vh;
   }
