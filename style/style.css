@@ -1,15 +1,22 @@
+/* Importações de Fontes - Mantenha como estão */
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+/* NOVAS VARIÁVEIS DE CORES */
 :root {
-  --corPrimaria: #05050e;
-  --corSecundaria: #00000e;
+  --corPrimaria: #0a0a1a; /* Um tom de azul-escuro bem profundo, quase preto */
+  --corSecundaria: #12122b; /* Um azul-escuro um pouco mais claro */
+  --corDestaque: #00bcd4; /* Um ciano vibrante para destaque (pode substituir #0891b2) */
+  --corNeutroClaro: #e0e0e0; /* Cinza claro para textos e bordas sutis */
+  --sombraPrimaria: rgba(0, 0, 0, 0.6); /* Sombra mais intensa */
+  --sombraSecundaria: rgba(0, 0, 0, 0.3); /* Sombra mais suave */
 }
 
+/* Base - Mantém a lógica */
 * {
-  transition: 500ms;
-  box-sizing: inherit;
+  transition: all 400ms ease-in-out; /* Transição mais genérica e suave */
+  box-sizing: border-box; /* Já estava box-sizing: inherit, mas force para border-box */
   color: white;
   scroll-margin-top: 100px;
 }
@@ -19,243 +26,353 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  /* min-height: 100vh; */
-  overflow-x: visible;
+  overflow-x: hidden; /* Mudei para hidden para evitar rolagem horizontal indesejada */
   box-sizing: border-box;
   scroll-behavior: smooth;
-
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif; /* Mudei a fonte base para Inter, mais legível */
   background: var(--corPrimaria);
+  color: var(--corNeutroClaro); /* Cor de texto padrão mais suave */
 }
 
+/* Navegação */
 nav {
-  font-size: 1rem;
+  font-size: 1.05rem; /* Levemente maior */
   background: var(--corPrimaria);
-  opacity: 0.9;
+  opacity: 0.95; /* Um pouco menos transparente */
   position: sticky !important;
   top: 0px;
   z-index: 1000;
+  box-shadow: 0 4px 10px var(--sombraPrimaria); /* Sombra sutil para a navbar */
 }
 
 #navbarNav {
   justify-content: center;
 }
 
-.nav-item:hover {
-  text-shadow: 2px 2px 5px rgb(255, 255, 255);
-  transform: scale(1.1);
+.nav-item .nav-link { /* Seleção mais específica para o link */
+  color: var(--corNeutroClaro); /* Garante a cor branca/clara no link */
+  padding: 0.5rem 1rem; /* Ajusta o padding */
 }
 
+.nav-item:hover .nav-link { /* Aplica o hover apenas no link */
+  text-shadow: 0 0 10px var(--corDestaque), 0 0 20px var(--corNeutroClaro); /* Efeito de brilho */
+  transform: translateY(-3px); /* Movimento mais sutil */
+  color: var(--corDestaque); /* Muda a cor do texto no hover */
+}
+
+/* Seção Início */
 #inicio {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  margin-top: 5rem;
-  margin-bottom: 7rem;
+  margin-top: 6rem; /* Mais espaço no topo */
+  margin-bottom: 8rem; /* Mais espaço no fundo */
+  padding: 0 2rem; /* Adiciona padding para evitar que cole nas bordas */
+  max-width: 1200px; /* Limita a largura máxima para melhor leitura */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nome {
   font-family: "Audiowide", Arial, Helvetica, sans-serif;
   text-align: center;
   margin: auto;
-  width: 40rem;
+  width: 100%; /* Ocupa a largura total da coluna do grid */
+  max-width: 40rem; /* Limite máximo para o texto */
+  padding: 1rem; /* Padding interno */
 }
 
 .nome h1 {
-  font-size: 3rem;
+  font-size: 3.5rem; /* Um pouco maior */
+  color: var(--corDestaque); /* Destaque no nome */
+  text-shadow: 0 0 15px rgba(0, 188, 212, 0.4); /* Brilho sutil */
 }
 
 .nome h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem; /* Um pouco maior */
+  color: var(--corNeutroClaro);
 }
 
 #textoInicio {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem; /* Texto mais legível */
+  line-height: 1.6; /* Melhor espaçamento entre linhas */
+  color: var(--corNeutroClaro);
 }
 
 #redes {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-top: 2rem; /* Espaço em relação ao texto */
 }
 
 .redesLink {
-  box-shadow: 15px 15px 10px black;
-  transition: 400ms;
+  box-shadow: 5px 5px 15px var(--sombraPrimaria); /* Sombra mais moderna */
+  transition: all 0.3s ease; /* Transição mais rápida e suave */
+  background-color: var(--corSecundaria); /* Fundo dos botões */
+  border: 1px solid var(--corDestaque); /* Borda com cor de destaque */
+  color: var(--corDestaque); /* Texto com cor de destaque */
+  padding: 0.7rem 1.5rem; /* Aumenta o padding */
+  border-radius: 8px; /* Bordas levemente mais suaves */
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaçamento entre ícone e texto */
 }
 
 .redesLink:hover {
-  transform: translate3d(5px, -5px, 10px);
+  transform: translateY(-5px) scale(1.05); /* Efeito mais dinâmico */
+  box-shadow: 8px 8px 20px var(--sombraPrimaria), 0 0 25px rgba(0, 188, 212, 0.6); /* Sombra e brilho no hover */
+  background-color: var(--corDestaque); /* Fundo muda para a cor de destaque */
+  color: var(--corPrimaria); /* Texto muda para a cor primária (escuro) */
 }
 
 .redesLink img {
-  width: 30px;
-  padding: 5px;
+  width: 25px; /* Ícones ligeiramente menores, mais alinhados */
+  padding: 0; /* Remove padding que já está no botão */
+  filter: invert(1); /* Deixa os ícones brancos */
 }
+
+.redesLink:hover img {
+    filter: invert(0); /* Ícones escuros no hover */
+}
+
 
 .foto {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .foto img {
-  max-width: 25rem;
-  border-radius: 100%;
-  box-shadow: 20px 20px 10px rgb(0, 0, 0);
+  max-width: 22rem; /* Ligeiramente menor para um visual mais equilibrado */
+  height: auto; /* Garante proporção */
+  border-radius: 50%; /* Mantém o círculo */
+  box-shadow: 0 0 30px var(--sombraPrimaria), 0 0 60px rgba(0, 188, 212, 0.4); /* Sombra mais envolvente e com brilho */
+  border: 4px solid var(--corDestaque); /* Borda de destaque */
+  object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
 }
 
 .foto img:hover {
-  transform: scale(1.2);
-  border-radius: 10%;
+  transform: scale(1.1); /* Efeito de zoom mais sutil */
+  border-radius: 15%; /* Mantém o arredondamento, mas com uma leve mudança */
+  box-shadow: 0 0 40px var(--sombraPrimaria), 0 0 80px var(--corDestaque); /* Brilho mais intenso no hover */
 }
 
+/* Seção Sobre Mim */
 .apresentacao {
-  text-align: center;
+  text-align: justify; /* Alinha o texto justificado para melhor leitura */
+  line-height: 1.8; /* Aumenta o espaçamento entre linhas */
+  font-size: 1.1rem;
+  color: var(--corNeutroClaro);
+  margin-top: 2rem;
 }
+.apresentacao p {
+    margin-bottom: 1.5rem; /* Espaçamento entre parágrafos */
+}
+
 
 #sobre {
   background: var(--corSecundaria);
-
-  height: 100vh;
+  padding: 5rem 0; /* Adiciona padding vertical para espaçamento */
+  min-height: 100vh; /* Usa min-height para se adaptar ao conteúdo */
+  display: flex; /* Para centralizar o conteúdo */
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente se o conteúdo for menor que 100vh */
 }
 .sobreDiv {
-  width: 80%;
+  width: 85%; /* Um pouco mais largo para melhor aproveitamento do espaço */
+  max-width: 1000px; /* Limita a largura máxima */
   margin: auto;
-  margin-bottom: 20vh;
+  padding: 2rem; /* Adiciona padding interno */
+  background: var(--corPrimaria); /* Fundo para o div sobre */
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--sombraPrimaria);
 }
 
 #sobre div {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
 }
 
 .titulo {
-  font-family: "Funnel Display";
+  font-family: "Funnel Display", sans-serif;
   text-align: center;
-  margin: 30px;
-  margin-top: 10vh;
+  margin: 40px 0; /* Ajusta a margem */
+  font-size: 3rem; /* Um pouco maior */
+  color: var(--corDestaque);
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
 }
 
+/* Habilidades (Com as novas categorias) */
 .tecnologiaContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Mais espaçamento entre os grupos de habilidades */
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 2rem; /* Espaçamento do título principal */
+}
+
+.sub-titulo-habilidades {
+    font-family: "Audiowide", Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 60px; /* Mais espaço acima do subtítulo */
+    margin-bottom: 25px; /* Mais espaço abaixo do subtítulo */
+    font-size: 2.2rem; /* Tamanho da fonte para os subtítulos */
+    color: var(--corNeutroClaro);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.habilidades-grupo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Reduz minmax para caber mais itens por linha */
+    gap: 20px; /* Espaçamento entre as habilidades dentro de um grupo */
+    padding: 30px; /* Padding interno para o grupo */
+    background: var(--corSecundaria); /* Fundo um pouco mais claro para o grupo */
+    border-radius: 20px;
+    box-shadow: 0 0 25px var(--sombraPrimaria);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .tecnologia {
   position: relative;
-  display: grid;
+  display: flex; /* Mudei para flex para melhor alinhamento do texto e ícone */
   align-items: center;
-  grid-template-columns: 1fr 2fr;
+  justify-content: flex-start; /* Alinha o conteúdo ao início */
+  gap: 10px; /* Espaço entre ícone e texto */
 
-  background: #0891b2;
-  border-radius: 25px;
+  background: var(--corPrimaria); /* Cor mais escura para o item */
+  border-radius: 12px; /* Bordas mais suaves */
+  border: 1px solid rgba(0, 188, 212, 0.3); /* Borda sutil de destaque */
 
-  height: 3rem;
-  margin-top: 10px;
-
-  transition: transform 300ms;
-  box-shadow: 15px 15px 10px #000000;
+  height: 3.5rem; /* Um pouco mais alto */
+  padding: 0 1rem; /* Padding interno */
+  
+  transition: all 0.3s ease;
+  box-shadow: 5px 5px 12px var(--sombraSecundaria);
   text-align: start;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem; /* Fonte ligeiramente menor */
+  color: var(--corNeutroClaro);
 }
 
 .tecnologia:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px) scale(1.03); /* Efeito de levitação mais pronunciado */
+  box-shadow: 8px 8px 18px var(--sombraPrimaria), 0 0 15px rgba(0, 188, 212, 0.5); /* Sombra e brilho */
+  background-color: var(--corSecundaria); /* Fundo muda ligeiramente no hover */
+  border-color: var(--corDestaque); /* Borda mais visível no hover */
 }
 
 .tecnologiaImg {
-  margin: auto;
-  height: 2rem;
+  margin: 0; /* Remove margem desnecessária */
+  height: 2.2rem; /* Um pouco maior */
+  filter: drop-shadow(0 0 5px rgba(0, 188, 212, 0.5)); /* Efeito de brilho no ícone */
 }
 
+/* Projetos */
 #projetos {
-  margin-bottom: 5rem;
+  margin-bottom: 7rem; /* Mais espaçamento */
+  padding: 5rem 0; /* Padding vertical */
 }
 
 .boxProjetos {
-  color: black;
   display: grid;
-  border-radius: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 50px;
-  gap: 5%;
-  margin-bottom: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Minmax ligeiramente menor para se adaptar melhor */
+  margin: 50px auto; /* Centraliza e adiciona margem automática */
+  gap: 30px; /* Mais espaço entre os cards */
+  max-width: 1200px; /* Limita a largura máxima */
+  padding: 0 2rem;
 }
 
 .boxCard {
-  color: black;
+  color: var(--corPrimaria); /* Texto dos cards será escuro */
   display: flex;
-  border-radius: 20px;
   flex-direction: column;
   justify-content: start;
-  background-color: #ffffff;
-  border-radius: 25px;
-  box-shadow: 15px 15px 10px #000000;
-  margin-top: 10px;
-  height: 102%;
+  background-color: var(--corNeutroClaro); /* Cards claros */
+  border-radius: 18px; /* Bordas mais suaves */
+  box-shadow: 0 8px 20px var(--sombraPrimaria); /* Sombra mais destacada */
+  margin-top: 15px; /* Mais espaço superior */
+  height: auto; /* Deixa a altura se adaptar ao conteúdo */
+  overflow: hidden; /* Garante que as bordas arredondadas funcionem com a imagem */
 }
 
 .boxCard:hover {
-  /* transform: translateY(-10px); */
-  transform: scale(1.03);
-  box-shadow: 15px 15px 10px #1d1d1d;
-
+  transform: translateY(-8px) scale(1.03); /* Efeito de levitação e zoom mais suave */
+  box-shadow: 0 12px 25px var(--sombraPrimaria), 0 0 30px rgba(0, 188, 212, 0.4); /* Sombra e brilho mais intenso */
 }
 
 .boxCard h3 {
   font-family: "Audiowide", Arial, Helvetica, sans-serif;
   text-align: start;
-  margin: 10px;
+  margin: 15px; /* Mais margem */
+  color: var(--corPrimaria); /* Título escuro */
+  font-size: 1.5rem;
 }
 
 .boxImg {
-  border-radius: 20px 20px 0 0;
-  height: 12rem;
+  border-radius: 18px 18px 0 0; /* Bordas arredondadas apenas no topo */
+  height: 14rem; /* Um pouco mais alto */
+  object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+  width: 100%; /* Garante que a imagem ocupe 100% da largura do card */
 }
 
-.boxImg :hover {
+/* Não vejo necessidade de hover na imagem interna se o card já tem */
+/* .boxImg :hover {
   transform: scale(1.01);
-}
+} */
 
 .boxTecs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 15px;
-  width: 100%;
-  padding: 10px;
+  display: flex; /* Mudei para flex para tags mais fluidas */
+  flex-wrap: wrap; /* Permite que as tags quebrem linha */
+  justify-content: flex-start; /* Alinha as tags ao início */
+  gap: 10px; /* Espaçamento menor entre tags */
+  padding: 15px; /* Padding interno */
 }
 
 .boxTecs div {
-  font-size: 10px;
-  background: #05050e;
-  border-radius: 50px;
-  padding: 5px;
+  font-size: 0.8rem; /* Tags um pouco menores */
+  background: var(--corSecundaria); /* Fundo da tag com cor secundária */
+  border-radius: 5px; /* Bordas menos arredondadas */
+  padding: 6px 10px; /* Padding mais retangular */
   text-align: center;
-  box-shadow: 5px 5px 8px #000000;
-  border: 1px solid rgba(37, 37, 37, 0.5);
+  box-shadow: 3px 3px 5px var(--sombraSecundaria);
+  border: 1px solid rgba(0, 188, 212, 0.3); /* Borda sutil */
+  color: var(--corDestaque); /* Texto da tag com cor de destaque */
+  white-space: nowrap; /* Impede que o texto quebre dentro da tag */
 }
 
 .boxTecs div:hover {
-  transform: scale(1.05);
-  color: black;
-  background: white;
-  transition: 300ms;
+  transform: translateY(-2px); /* Levitação sutil */
+  color: var(--corPrimaria); /* Texto muda para escuro */
+  background: var(--corDestaque); /* Fundo muda para destaque */
+  box-shadow: 5px 5px 10px var(--sombraPrimaria);
 }
 
 .boxText {
-  color: black;
-  font-family: "Inter";
-  margin: 0px 15px 15px 10px;
-  text-align:justify;
+  color: var(--corPrimaria); /* Texto principal do card escuro */
+  font-family: "Inter", sans-serif;
+  margin: 10px 15px 20px; /* Margens ajustadas */
+  text-align: justify;
+  font-size: 0.95rem; /* Tamanho da fonte */
+  line-height: 1.5;
+  flex-grow: 1; /* Garante que o texto ocupe o espaço disponível */
 }
 
 .boxLinks {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px; /* Adiciona padding para afastar os botões das bordas */
+  margin-top: auto; /* Empurra os botões para o final do card */
 }
 
 .boxLinks a {
@@ -263,206 +380,534 @@ nav {
 }
 
 .boxLinks button {
-  width: 100px;
-  border: 1px solid black;
-  color: rgb(0, 0, 0);
+  width: 110px; /* Ligeiramente mais largo */
+  padding: 0.6rem 1rem; /* Mais padding */
+  border: 1px solid var(--corPrimaria); /* Borda escura */
+  color: var(--corPrimaria); /* Texto escuro */
   font-family: "Inter", Arial, Helvetica, sans-serif;
   text-align: center;
-  margin: 0px 10px 0px 10px;
+  margin: 0 8px; /* Espaçamento menor entre botões */
   border-radius: 5px;
+  background-color: var(--corDestaque); /* Fundo com cor de destaque */
 
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px; /* Espaçamento entre ícone e texto */
+  transition: all 0.3s ease;
+  font-weight: 600; /* Texto mais forte */
 }
 
 .boxLinks button:hover {
-  transform: scale(1.1);
-  transition: 300ms;
+  transform: scale(1.08); /* Efeito de zoom mais sutil */
+  background-color: var(--corPrimaria); /* Fundo escuro no hover */
+  color: var(--corDestaque); /* Texto de destaque no hover */
+  border-color: var(--corDestaque); /* Borda de destaque no hover */
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
 }
 
 .boxLinks button img {
-  width: 15px;
-  margin-right: 10px;
+  width: 18px; /* Ícone um pouco maior */
+  margin-right: 0; /* Remove margem duplicada */
+  filter: invert(0); /* Garante que o ícone seja escuro no botão primário */
 }
 
+.boxLinks button:hover img {
+    filter: invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); /* Ícone branco e com brilho no hover */
+}
+
+/* Contato */
 .contato {
   background: var(--corSecundaria);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Audiowide";
-  height: 100vh;
+  font-family: "Audiowide", sans-serif;
+  padding: 5rem 0; /* Adiciona padding vertical para espaçamento */
+  min-height: 100vh; /* Usa min-height para se adaptar ao conteúdo */
   margin-top: 5rem;
+}
+.contato h1 {
+    color: var(--corDestaque);
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+    margin-bottom: 3rem;
 }
 
 .divContato {
   background: var(--corPrimaria);
-
   border-radius: 20px;
-  width: 40%;
-  padding: 20px;
+  width: 50%; /* Ligeiramente mais largo para formulário */
+  max-width: 600px; /* Limite máximo */
+  padding: 30px; /* Mais padding */
   display: flex;
   justify-content: center;
+  box-shadow: 0 0 25px var(--sombraPrimaria);
 }
 
 .contato form {
-  width: 70%;
-
+  width: 80%; /* Formulário ocupa mais espaço dentro do divContato */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center; /* Centraliza itens do formulário */
 }
 
+.contato h3 {
+    text-align: left;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: var(--corNeutroClaro);
+}
 
 .input,
-.textArea,
+.textArea {
+  font-family: "Inter", sans-serif;
+  background: var(--corSecundaria); /* Fundo dos campos de entrada */
+  color: var(--corNeutroClaro); /* Cor do texto */
+  border: 1px solid rgba(0, 188, 212, 0.5); /* Borda sutil de destaque */
+  border-radius: 8px; /* Bordas mais suaves */
+  padding: 10px 15px; /* Mais padding */
+  margin: 8px 0; /* Margem ajustada */
+  width: 100%; /* Ocupa a largura total */
+  box-sizing: border-box; /* Inclui padding na largura */
+  outline: none; /* Remove a borda de foco padrão */
+}
+
+.input::placeholder,
+.textArea::placeholder {
+  color: rgba(255, 255, 255, 0.5); /* Placeholder mais suave */
+}
+
+.input:focus,
+.textArea:focus {
+  border-color: var(--corDestaque); /* Borda de destaque ao focar */
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.6); /* Brilho ao focar */
+}
+
 .btnSub {
-  font-family: "Inter";
-  background: var(--corPrimaria);
-  color: black;
-  color: white;
-  border: white 1px double;
-  border-radius: 10px;
-  padding: 5px;
-  margin: 10px;
+  font-family: "Inter", sans-serif;
+  background-color: var(--corDestaque); /* Fundo com cor de destaque */
+  color: var(--corPrimaria); /* Texto escuro */
+  border: none; /* Remove a borda */
+  border-radius: 8px;
+  padding: 12px 25px; /* Mais padding */
+  margin-top: 25px; /* Mais espaço acima */
+  cursor: pointer;
+  font-weight: 700; /* Texto mais forte */
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px var(--sombraSecundaria);
+  width: 100%; /* Ocupa a largura total */
+  max-width: 200px; /* Limita a largura do botão */
 }
 
 .btnSub:hover {
-  background-color: green;
-  color: white;
-  cursor: pointer;
+  background-color: var(--corPrimaria); /* Fundo escuro no hover */
+  color: var(--corDestaque); /* Texto de destaque no hover */
+  box-shadow: 0 8px 20px var(--sombraPrimaria), 0 0 20px rgba(0, 188, 212, 0.8); /* Sombra e brilho */
+  border: 1px solid var(--corDestaque);
 }
 
+/* Garante que as seções ocupem pelo menos a altura da tela, mas se adaptem */
 #habilidades, #projetos, .contato {
   min-height: 100vh;
+  padding: 5rem 0; /* Garante padding em todas as seções */
+}
+
+
+/* Media Queries - Revisadas para as novas cores e espaçamentos */
+
+@media (max-width: 992px) { /* Adicionado um breakpoint maior para tablets */
+    #inicio {
+        grid-template-columns: 1fr;
+        margin-top: 4rem;
+        margin-bottom: 5rem;
+        padding: 0 1rem;
+    }
+
+    .nome h1 {
+        font-size: 2.8rem;
+    }
+    .nome h2 {
+        font-size: 1.6rem;
+    }
+    .foto img {
+        max-width: 16rem;
+        margin-top: 2rem;
+    }
+    .redesLink {
+        padding: 0.6rem 1.2rem;
+    }
+    .redesLink img {
+        width: 20px;
+    }
+
+    .sobreDiv {
+        width: 90%;
+        padding: 1.5rem;
+    }
+    .titulo {
+        font-size: 2.5rem;
+    }
+    .sub-titulo-habilidades {
+        font-size: 1.8rem;
+    }
+    .habilidades-grupo {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        padding: 20px;
+    }
+    .tecnologia {
+        height: 3rem;
+        font-size: 0.9rem;
+    }
+    .tecnologiaImg {
+        height: 1.8rem;
+    }
+
+    .boxProjetos {
+        margin: 30px auto;
+        gap: 20px;
+        padding: 0 1.5rem;
+    }
+    .boxCard h3 {
+        font-size: 1.3rem;
+    }
+    .boxImg {
+        height: 12rem;
+    }
+    .boxTecs div {
+        font-size: 0.75rem;
+        padding: 5px 8px;
+    }
+    .boxLinks button {
+        width: 100px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    .boxLinks button img {
+        width: 16px;
+    }
+    .divContato {
+        width: 70%;
+        padding: 25px;
+    }
+    .contato h3 {
+        font-size: 1rem;
+    }
+    .input, .textArea {
+        padding: 8px 12px;
+    }
+    .btnSub {
+        padding: 10px 20px;
+    }
+
+    #habilidades, #projetos, .contato {
+        padding: 3rem 0;
+        margin-top: 0; /* Remove margin-top adicional que pode causar problema */
+    }
+    #habilidades {
+        margin-bottom: 10vh; /* Ajustado para melhor visualização em telas médias */
+    }
+    #projetos {
+        margin-top: 0; /* Removido para não empurrar demais em telas menores */
+    }
+    .contato {
+        margin-top: 0; /* Removido para não empurrar demais em telas menores */
+    }
 }
 
 
 @media (max-width: 768px) {
-  body {
-    max-width: 100%;
-  }
+    body {
+        max-width: 100%;
+    }
 
-  * {
-    transition: none !important;
-  }
+    * {
+        transition: none !important; /* Desabilita transições em mobile para performance */
+    }
 
-  #inicio {
-    grid-template-columns: 1fr;
-    grid-auto-flow: row;
-    gap: 2rem;
-    margin: 1.5rem auto;
-    padding: 1rem;
-  }
+    #inicio {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
 
-  .nome {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 1rem;
-  }
+    .nome {
+        width: 100%;
+        padding: 0 0.5rem;
+    }
 
-  .nome h1 {
-    font-size: 1.8rem;
-  }
+    .nome h1 {
+        font-size: 2.2rem;
+    }
 
-  .nome h2 {
-    font-size: 1.5rem;
-  }
+    .nome h2 {
+        font-size: 1.3rem;
+    }
 
-  .foto {
-    margin-top: 1.5rem;
-    padding: 1rem;
-  }
+    .foto {
+        margin-top: 1.5rem;
+        padding: 0.5rem;
+    }
 
-  .foto img {
-    max-width: 18rem;
-  }
+    .foto img {
+        max-width: 14rem;
+    }
 
-  #habilidades{
-    height: 100vh;
-    margin-bottom: 20vh;
-  }
+    .redesLink {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .redesLink img {
+        width: 18px;
+    }
 
-  .tecnologiaContainer {
-    gap: 0.8rem;
-    margin-bottom: 5rem;
-    
-  }
+    #sobre {
+        padding: 3rem 0;
+    }
+    .sobreDiv {
+        width: 95%;
+        padding: 1rem;
+    }
+    .titulo {
+        font-size: 2rem;
+        margin: 25px 0;
+    }
+    .apresentacao {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
 
-  #projetos{
-    margin-top: 100vh;
-  }
+    /* Habilidades em Mobile */
+    .tecnologiaContainer {
+        gap: 25px;
+        padding: 0 10px;
+    }
+    .sub-titulo-habilidades {
+        font-size: 1.6rem;
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+    .habilidades-grupo {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Mais compacto */
+        gap: 10px;
+        padding: 15px;
+    }
+    .tecnologia {
+        height: 3rem;
+        font-size: 0.85rem;
+        gap: 8px;
+        padding: 0 0.8rem;
+    }
+    .tecnologiaImg {
+        height: 1.6rem;
+    }
 
-  .contato {
-  
-    height: auto;
-    padding: 2rem;
-    margin-top: 100vh;
-  }
+    /* Projetos em Mobile */
+    #projetos {
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+    }
+    .boxProjetos {
+        margin: 20px auto;
+        gap: 15px;
+        padding: 0 1rem;
+        grid-template-columns: 1fr; /* Um card por linha em telas muito pequenas */
+    }
+    .boxCard {
+        margin-top: 10px;
+    }
+    .boxCard h3 {
+        font-size: 1.2rem;
+        margin: 10px;
+    }
+    .boxImg {
+        height: 10rem;
+    }
+    .boxTecs {
+        gap: 8px;
+        padding: 10px;
+    }
+    .boxTecs div {
+        font-size: 0.7rem;
+        padding: 4px 6px;
+    }
+    .boxText {
+        font-size: 0.9rem;
+        margin: 8px 10px 15px;
+    }
+    .boxLinks {
+        padding: 10px;
+    }
+    .boxLinks button {
+        width: 90px;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    .boxLinks button img {
+        width: 14px;
+    }
 
-  .contato form, .divContato {
-    width: 95%;
-  }
+    /* Contato em Mobile */
+    .contato {
+        padding: 3rem 0;
+        height: auto;
+    }
+    .contato h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .divContato {
+        width: 90%;
+        padding: 20px;
+    }
+    .contato form {
+        width: 90%;
+    }
+    .contato h3 {
+        font-size: 0.9rem;
+    }
+    .input, .textArea {
+        padding: 6px 10px;
+    }
+    .btnSub {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Correções de layout para a seção de habilidades na seção @media (max-width: 768px) */
+    #habilidades{
+        /* Remova ou ajuste essas regras se elas estiverem causando o "bug" */
+        /* height: auto; */ /* Pode ser melhor para que o conteúdo defina a altura */
+        /* margin-bottom: 10vh; */ /* Ajuste conforme a necessidade */
+        min-height: auto; /* Permite que o conteúdo defina a altura */
+    }
+    .tecnologiaContainer {
+        gap: 1.5rem; /* Ajusta o espaçamento entre grupos em mobile */
+        margin-bottom: 0; /* Remove margem inferior que pode estar empurrando */
+    }
+    /* #projetos e .contato também podem ter o margin-top removido ou ajustado */
+    #projetos, .contato {
+        margin-top: 0;
+        min-height: auto; /* Permite que o conteúdo defina a altura */
+    }
 }
 
 @media (max-width: 480px) {
-  
+    .nome h1 {
+        font-size: 1.8rem;
+    }
+    .nome h2 {
+        font-size: 1.1rem;
+    }
+    .foto img {
+        max-width: 12rem;
+    }
+    .redesLink {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .redesLink img {
+        width: 16px;
+    }
 
-  .nome h1 {
-    font-size: 1.6rem;
-  }
+    .titulo {
+        font-size: 1.8rem;
+    }
+    .sub-titulo-habilidades {
+        font-size: 1.4rem;
+    }
+    .habilidades-grupo {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); /* Mais apertado para telas pequenas */
+        gap: 8px;
+        padding: 10px;
+    }
+    .tecnologia {
+        height: 2.8rem;
+        font-size: 0.8rem;
+        padding: 0 0.6rem;
+    }
+    .tecnologiaImg {
+        height: 1.4rem;
+    }
 
-  .nome h2 {
-    font-size: 1.1rem;
-  }
+    .boxProjetos {
+        margin: 15px auto;
+        gap: 10px;
+        padding: 0 0.8rem;
+    }
+    .boxCard h3 {
+        font-size: 1rem;
+        margin: 8px;
+    }
+    .boxImg {
+        height: 8rem;
+    }
+    .boxTecs {
+        gap: 6px;
+        padding: 8px;
+    }
+    .boxTecs div {
+        font-size: 0.65rem;
+        padding: 3px 5px;
+    }
+    .boxText {
+        font-size: 0.8rem;
+        margin: 6px 8px 12px;
+    }
+    .boxLinks {
+        padding: 8px;
+    }
+    .boxLinks button {
+        width: 80px;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+    }
+    .boxLinks button img {
+        width: 12px;
+    }
 
-  .foto img {
-    max-width: 15rem;
-  }
-
-  .tecnologiaContainer {
-    gap: 0.4rem;
-  }
-
-  .boxProjetos {
-    margin: 15px;
-  }
-
-  .contato {
-    height: auto;
-    padding: 1rem;
+    .divContato {
+        width: 95%;
+        padding: 15px;
+    }
+    .contato h3 {
+        font-size: 0.85rem;
+    }
+    .input, .textArea {
+        padding: 5px 8px;
+    }
+    .btnSub {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
     
-    margin-top: 150vh;
-  }
+    #projetos {
+        margin-bottom: 5vh;
+    }
 }
 
 @media (max-width: 360px) {
   .nome h1 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
-
   .nome h2 {
     font-size: 0.9rem;
   }
-
   .foto img {
-    max-width: 12rem;
+    max-width: 10rem;
   }
 
-  .boxProjetos {
-    margin: 10px;
+  .titulo {
+    font-size: 1.6rem;
   }
-
-  #projetos {
-    margin-bottom: 15vh;
+  .sub-titulo-habilidades {
+    font-size: 1.2rem;
   }
-  .contato {
-    margin-top: 200vh;
-    padding: 0.5rem;
-    margin-top: 10vh;
+  .habilidades-grupo {
+    grid-template-columns: 1fr; /* Uma coluna apenas em telas muito pequenas */
   }
 }
-
